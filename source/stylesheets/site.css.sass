@@ -1,3 +1,10 @@
+$header_color: green 
+$main_color: pink
+$footer_color: purple
+$header_size: 80px
+$footer_size: 50px
+
+
 body 
     margin: 0
     padding: 0
@@ -5,111 +12,69 @@ body
 .wrapper
     display: grid
     grid-template-columns: auto
-    grid-template-rows: 80px 80px auto 60px 50px
+    grid-template-rows: $header_size 80px auto 60px $footer_size
+    grid-template-areas: "header" "left" "main" "right" "footer"
     min-height: 100vh
 
     .header
-        background-color: green
-        grid-column: 1
-        grid-row: 1
+        background-color: $header_color
+        grid-area: header
 
     .sidebar-left
         background-color: yellow
-        grid-column: 1
-        grid-row: 2
+        grid-area: left
 
     .sidebar-right
         background-color: blue
-        grid-column: 1
-        grid-row: 4
+        grid-area: right
 
     .main
-        background-color: orange
-        grid-column: 1
-        grid-row: 3
+        background-color: $main_color
+        grid-area: main
 
     .footer
-        background-color: purple
-        grid-column: 1
-        grid-row: 5
+        background-color: $footer_color
+        grid-area: footer
 
 @media screen and (min-width: 960px)
     .wrapper
-        display: grid
         grid-template-columns: 100px auto
-        grid-template-rows: 80px auto 60px 50px
-        min-height: 100vh
+        grid-template-rows: $header_size auto 60px $footer_size
+        grid-template-areas: "header header" "left main" "left right" "footer footer"
 
         .header
-            background-color: green
-            grid-column-start: 1
-            grid-column-end: 3
-            grid-row: 1
+            background-color: $header_color
 
         .sidebar-left
             background-color: yellow
-            grid-column-start: 1
-            grid-column-end: 2
-            grid-row: 2
 
         .sidebar-right
             background-color: blue
-            grid-column-start: 1
-            grid-column-end: 3
-            grid-row: 3
 
         .main
-            background-color: orange
-            grid-column-start: 2
-            grid-column-end: 3
-            grid-row: 2
+            background-color: $main_color
 
         .footer
-            background-color: purple
-            grid-column-start: 1
-            grid-column-end: 3
-            grid-row: 4
+            background-color: $footer_color
 
 
 @media screen and (min-width: 1240px)
     .wrapper
-        display: grid
         grid-template-columns: 100px auto 60px
-        grid-template-rows: 80px auto 50px
-        min-height: 100vh
+        grid-template-rows: $header_size auto $footer_size
+        grid-template-areas: "header header header" "left main right" "footer footer footer"
 
         .header
-            background-color: green
-            grid-column-start: 1
-            grid-column-end: 4
-            grid-row: 1
+            background-color: $header_color
 
         .sidebar-left
             background-color: yellow
-            grid-column-start: 1
-            grid-column-end: 2
-            grid-row: 2
 
         .sidebar-right
             background-color: blue
-            grid-column-start: 3
-            grid-column-end: 4
-            grid-row: 2
 
         .main
-            background-color: orange
-            grid-column-start: 2
-            grid-column-end: 3
-            grid-row: 2
+            background-color: $main_color
 
         .footer
-            background-color: purple
-            // grid-column-start: 1
-            // grid-column-end: 4
-            // grid-row-start: 3
-            // grid-row-end: 4
-            
-            // grid-column: 1/4
-            // grid-row: 3
-            
-            grid-area: 3/1/4/4
+            background-color: $footer_color
